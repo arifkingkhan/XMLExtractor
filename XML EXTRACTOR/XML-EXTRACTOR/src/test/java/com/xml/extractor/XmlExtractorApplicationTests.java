@@ -1,4 +1,4 @@
-package com.XML.EXTRACTOR;
+package com.xml.extractor;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,7 +1,12 @@
-package com.ngb.xml.parser;
+package com.xml.extractor;
 
-import com.ngb.xml.bean.ExcelConsumer;
-import com.ngb.xml.pathUtil.PathUtil;
+import com.monitorjbl.xlsx.StreamingReader;
+import com.xml.bean.ExcelConsumer;
+import com.xml.pathUtil.PathUtil;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,12 +15,6 @@ import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import com.monitorjbl.xlsx.StreamingReader;
 
 
 public class ExcelReader {
@@ -26,7 +25,7 @@ public class ExcelReader {
        // List<ExcelConsumer> excelConsumer = new ArrayList<ExcelConsumer>();
         // String xmlFilesDirectory = "C:\\Users\\Napster\\Downloads\\NGB\\NGB";
         //File directory = new File(xmlFilesDirectory);
-        File excel = new File(PathUtil.baseExcelFolder + "consumerNo.xlsx");
+        File excel = new File(PathUtil.baseExcelFolder + "ABC.xlsx");
         InputStream is = new FileInputStream(excel);
         Workbook workbook = StreamingReader.builder()
                 .rowCacheSize(100)
@@ -74,14 +73,9 @@ public class ExcelReader {
 
 
                     case 0:
-                        e.setConsumerNo(cellValue);
+                        e.setXmlFileName(cellValue);
                         break;
-                    case 1 :
-                        e.setSerialNo(cellValue);
-                        break;
-                    case 2:
-                        e.setMeterMakeCode(cellValue);
-                        break;
+
 
                 }
             }
